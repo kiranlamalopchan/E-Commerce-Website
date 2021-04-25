@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+
+{% block content %}
+    <!----CAROUSEL---->
+    <div class="bd-example">
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel" data-slide-to="1"></li>
+                <li data-target="#carousel" data-slide-to="2"></li>
+                <li data-target="#carousel" data-slide-to="3"></li>
+                <li data-target="#carousel" data-slide-to="4"></li>
+                <li data-target="#carousel" data-slide-to="5"></li>
+            </ol>
+            <div class="carousel-inner">
+                {% for banner in banners %}
+                    <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
+                        <img src=" {{ banner.image.url }}" class="d-block w-100" alt="...">
+                    </div>
+                {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                <span hidden class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                <span hidden class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <!----END CAROUSEL---->
+
+    <!--Section Start-->
+    {% for section in sections %}
+        {% if section.id == 1 %}
+            <div class="container">
+                <div class="row m-4">
+                    <div class="max-auto col-sm-6" data-aos="zoom-in">
+                        <div class="display-4 font-weight-bold">{{ section.title }}</div>
+                        <p class="lead">{{ section.sub_title }}</p>
+                        <hr class="my-4">
+                        <h2 class="font-weight-bold">{{ section.description }}</h2>
+                        <a class="btn btn-lg border sweep-to-right" href="/">Learn More</a>
+                    </div>
+                    <div class="mx-auto col-sm-6" data-aos="fade-left" data-aos-offset="300"
+                         data-aos-easing="ease-in-sine">
+                        <img src="{{ section.image.url }}" alt="">
+                    </div>
+                </div>
+            </div>
+        {% elif section.id == 2 %}
+            <div class="jumbotron p-1">
+                <div class="container">
+                    <div class="row m-2">
+                        <div class="mx-auto col-sm-6 m-3" data-aos="fade-right" data-aos-offset="300"
+                             data-aos-easing="ease-in-sine">
+                            <img src="{{ section.image.url }}" alt="">
+                        </div>
+                        <div class="max-auto col-sm-6" data-aos="zoom-in">
+                            <div class="display-4 font-weight-bold">{{ section.title }}</div>
+                            <p class="lead">{{ section.sub_title }}</p>
+                            <hr class="my-4">
+                            <h2 class="font-weight-bold">{{ section.description }}</h2>
+                            <a class="btn btn-lg border sweep-to-right" href="/">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% elif section.id == 3 %}
+            <div class="container">
+                <div class="row m-5">
+                    <div class="max-auto col-sm-6" data-aos="zoom-in">
+                        <div class="display-4 font-weight-bold">{{ section.title }}</div>
+                        <p class="lead">{{ section.sub_title }}</p>
+                        <hr class="my-4">
+                        <h2 class="font-weight-bold">{{ section.description }}</h2>
+                        <a class="btn btn-lg border sweep-to-right" href="/">Learn More</a>
+                    </div>
+                    <div class="mx-auto col-sm-6" data-aos="fade-left" data-aos-offset="300"
+                         data-aos-easing="ease-in-sine">
+                        <img src="{{ section.image.url }}" alt="">
+                    </div>
+                </div>
+            </div>
+        {% elif section.id == 4 %}
+            <div class="jumbotron p-1">
+                <div class="container">
+                    <div class="row m-2">
+                        <div class="mx-auto col-sm-4">
+                            <img src="{{ section.image.url }}" alt="">
+                        </div>
+                        <div class="max-auto col-sm-6" data-aos="fade-left" data-aos-offset="300"
+                             data-aos-easing="ease-in-sine">
+                            <div class="display-4 font-weight-bold">{{ section.title }}</div>
+                            <p class="lead">{{ section.sub_title }}</p>
+                            <hr class="my-4">
+                            <h2 class="font-weight-bold">{{ section.description }}</h2>
+                            <a class="btn btn-lg border sweep-to-right" href="/">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% elif section.id == 5 %}
+            <div class="container">
+                <div class="align-center">
+                    <div class="mx-auto" data-aos="zoom-in" data-aos-offset="300"
+                         data-aos-easing="ease-in-sine">
+                        <img src="{{ section.image.url }}" alt="">
+                    </div>
+                </div>
+                <div class="m-5 p-3 text-center" data-aos="zoom-in">
+                    <div class="display-4 font-weight-bold">{{ section.title }}</div>
+                    <p class="lead">{{ section.sub_title }}</p>
+                    <hr class="my-4">
+                    <a class="btn btn-lg border sweep-to-right" href="/">Learn More</a>
+                </div>
+            </div>
+        {% elif section.id == 6 %}
+            <div class="jumbotron p-1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-5" data-aos="fade-right" data-aos-offset="300"
+                             data-aos-easing="ease-in-sine">
+                            <img src="{{ section.image.url }}" alt="">
+                        </div>
+                        <div class="max-auto col-sm-6" data-aos="zoom-in">
+                            <div class="display-4 font-weight-bold">{{ section.title }}</div>
+                            <p class="lead">{{ section.sub_title }}</p>
+                            <hr class="my-4">
+                            <h2 class="font-weight-bold">{{ section.description }}</h2>
+                            <a class="btn btn-lg border sweep-to-right" href="/">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+    <!--Section End-->
+
+    <!--brand Image-->
+    <div class="container">
+        <div uk-slider="autoplay: true" class="m-5">
+            <div class="uk-position-relative">
+                <div class="uk-slider-container uk-light">
+                    <ul class="uk-slider-items uk-width-2xlarge uk-child-width-1-6@m">
+                        {% for brand in brands %}
+                            <li class="brand-size">
+                                <img src="{{ brand.image.url }}" alt="Brands Name">
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="uk-hidden@s uk-light">
+                    <a class="uk-position-center-left uk-position-small" href="#" uk-slidenav-previous
+                       uk-slider-item="previous"></a>
+                    <a class="uk-position-center-right uk-position-small" href="#" uk-slidenav-next
+                       uk-slider-item="next"></a>
+                </div>
+
+                <div class="uk-visible@s">
+                    <a class="uk-position-center-left-out uk-position-small" href="#" uk-slidenav-previous
+                       uk-slider-item="previous"></a>
+                    <a class="uk-position-center-right-out uk-position-small" href="#" uk-slidenav-next
+                       uk-slider-item="next"></a>
+                </div>
+
+            </div>
+            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+        </div>
+    </div>
+    <!--brand Image end-->
+
+    <h1 class="mb-5 text-center uk-text-bolder">Featured products</h1>
+    <!--All Products-->
+    <div class="container">
+        <div class="row">
+            {% for product in products %}
+                <div class="col-sm-6 col-lg-3 mb-5">
+                    <div class="uk-text-center">
+                        <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                            <div class="p-4">
+                                <img src="{{ product.image.url }}" alt="products detail">
+                            </div>
+                            <div class="m-0">
+                                <span class="uk-margin-small-top uk-text-normal">{{ product.name }}</span><br>
+                                <span class="">{{ product.specs }}</span><br>
+                                <span class="uk-text-bolder">Nrs. {{ product.price|intcomma }}</span>
+                            </div>
+                            <div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-default">
+                                <a href="/product-details/?productsId={{ product.id }}"
+                                   class="btn mx-auto border sweep-to-right" style="background-color: #cccccc">Choose
+                                    Specs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!--All products end-->
+{% endblock %}
+

@@ -10,7 +10,7 @@ class Customer(models.Model):
     city = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
     zip = models.IntegerField()
-    check = models.CharField(max_length=15, default="Not Choosen")
+    check = models.CharField(max_length=15, default="Not Chosen")
 
     def __str__(self):
         return self.username
